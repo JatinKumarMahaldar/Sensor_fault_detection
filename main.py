@@ -2,25 +2,13 @@ from sensor.configuration.mongo_db_connections import MongoDBClient
 from sensor.exception import SensorException
 from sensor.logger import logging
 import os, sys
+from sensor.entity.config_entity import TrainingPipelineConfig , DataIngestionConfig
 
-
-
-
-def try_exception():
-    try:
-        logging.info("we are dividing 1 by zero")
-        
-        a = 1 / 0
-        
-    except Exception as error:
-        raise SensorException(error , sys)
     
 if __name__ == '__main__':
-    try:
-        try_exception()
-    except Exception as error:
-        raise SensorException(error , sys)
-    
+    TrainingPipelineConfig = TrainingPipelineConfig()
+    DataIngestionConfig = DataIngestionConfig(training_pipeline_config =TrainingPipelineConfig)
+    print(DataIngestionConfig.__dict__)
     
     
     
